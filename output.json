@@ -1,0 +1,448 @@
+{
+  "scenario_1_main_test": [
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "alert",
+        "title": "Server Alert",
+        "message": "Server is down in zone A",
+        "source": "unknown",
+        "priority_hint": "urgent",
+        "timestamp": "2026-02-26T10:00:00+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": "srvdown-42",
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "URGENT_KEYWORD",
+      "reason": "LABEL:NOW; SHORT_REASON:Urgent: service outage detected, priority=urgent, event_type=alert; CONFIDENCE:0.99",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "alert",
+        "title": "Server Alert",
+        "message": "Server is down in zone A",
+        "source": "unknown",
+        "priority_hint": "urgent",
+        "timestamp": "2026-02-26T10:00:30+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": "srvdown-42",
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "URGENT_KEYWORD",
+      "reason": "LABEL:NOW; SHORT_REASON:Urgent: service outage detected, priority=urgent, event_type=alert; CONFIDENCE:0.99",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "reminder",
+        "title": "Timesheet",
+        "message": "Submit timesheet today",
+        "source": "unknown",
+        "priority_hint": "medium",
+        "timestamp": "2026-02-26T10:02:00+00:00",
+        "channel": "email",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "LATER",
+      "scheduled_time": "2026-02-27T09:00:00+00:00",
+      "explanation_code": "LLM_DECISION",
+      "reason": "LABEL:LATER; SHORT_REASON:Non-urgent, schedulable content (score=3); CONFIDENCE:0.90",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "promotion",
+        "title": "Shoe Sale",
+        "message": "Flat 70% off on shoes",
+        "source": "unknown",
+        "priority_hint": "low",
+        "timestamp": "2026-02-26T10:03:00+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NEVER",
+      "scheduled_time": null,
+      "explanation_code": "RULE_OVERRIDE",
+      "reason": "Rule R01: Suppress promotions by default",
+      "matched_rule_id": "R01"
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "reminder",
+        "title": "Timesheet",
+        "message": "Submit timesheet today",
+        "source": "unknown",
+        "priority_hint": "medium",
+        "timestamp": "2026-02-26T10:04:00+00:00",
+        "channel": "email",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "LATER",
+      "scheduled_time": "2026-02-27T09:00:00+00:00",
+      "explanation_code": "LLM_DECISION",
+      "reason": "LABEL:LATER; SHORT_REASON:Non-urgent, schedulable content (score=3); CONFIDENCE:0.90",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u2",
+        "event_type": "message",
+        "title": "Verification",
+        "message": "OTP: 445566",
+        "source": "unknown",
+        "priority_hint": "urgent",
+        "timestamp": "2026-02-26T10:05:00+00:00",
+        "channel": "sms",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "URGENT_KEYWORD",
+      "reason": "LABEL:NOW; SHORT_REASON:Urgent: contains OTP, priority=urgent; CONFIDENCE:0.99",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "alert",
+        "title": "Disk Alert",
+        "message": "Disk usage 95% in zone A",
+        "source": "unknown",
+        "priority_hint": "high",
+        "timestamp": "2026-02-26T10:06:00+00:00",
+        "channel": "in_app",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "URGENT_KEYWORD",
+      "reason": "LABEL:NOW; SHORT_REASON:Urgent: event_type=alert; CONFIDENCE:0.99",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "promotion",
+        "title": "Shoes on Sale",
+        "message": "Sale on shoes - 70%",
+        "source": "unknown",
+        "priority_hint": "low",
+        "timestamp": "2026-02-26T10:08:00+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NEVER",
+      "scheduled_time": null,
+      "explanation_code": "RULE_OVERRIDE",
+      "reason": "Rule R01: Suppress promotions by default",
+      "matched_rule_id": "R01"
+    }
+  ],
+  "scenario_2_stress_test": [
+    {
+      "input_event": {
+        "user_id": "u3",
+        "event_type": "alert",
+        "title": "CPU Alert",
+        "message": "CPU usage high on server-1",
+        "source": "unknown",
+        "priority_hint": "high",
+        "timestamp": "2026-02-26T10:00:00+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "URGENT_KEYWORD",
+      "reason": "LABEL:NOW; SHORT_REASON:Urgent: event_type=alert; CONFIDENCE:0.99",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u3",
+        "event_type": "alert",
+        "title": "Memory Alert",
+        "message": "Memory usage high on server-1",
+        "source": "unknown",
+        "priority_hint": "high",
+        "timestamp": "2026-02-26T10:01:00+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "URGENT_KEYWORD",
+      "reason": "LABEL:NOW; SHORT_REASON:Urgent: event_type=alert; CONFIDENCE:0.99",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u3",
+        "event_type": "alert",
+        "title": "Disk Alert",
+        "message": "Disk IOPS high on server-1",
+        "source": "unknown",
+        "priority_hint": "high",
+        "timestamp": "2026-02-26T10:02:00+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "URGENT_KEYWORD",
+      "reason": "LABEL:NOW; SHORT_REASON:Urgent: event_type=alert; CONFIDENCE:0.99",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u3",
+        "event_type": "alert",
+        "title": "Network Alert",
+        "message": "Network latency high on server-1",
+        "source": "unknown",
+        "priority_hint": "high",
+        "timestamp": "2026-02-26T10:03:00+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "URGENT_KEYWORD",
+      "reason": "LABEL:NOW; SHORT_REASON:Urgent: event_type=alert; CONFIDENCE:0.99",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u3",
+        "event_type": "alert",
+        "title": "Load Alert",
+        "message": "Load average high on server-1",
+        "source": "unknown",
+        "priority_hint": "high",
+        "timestamp": "2026-02-26T10:04:00+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "URGENT_KEYWORD",
+      "reason": "LABEL:NOW; SHORT_REASON:Urgent: event_type=alert; CONFIDENCE:0.99",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u3",
+        "event_type": "alert",
+        "title": "Swap Alert",
+        "message": "Swap usage high on server-1",
+        "source": "unknown",
+        "priority_hint": "high",
+        "timestamp": "2026-02-26T10:04:30+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "URGENT_KEYWORD",
+      "reason": "LABEL:NOW; SHORT_REASON:Urgent: event_type=alert; CONFIDENCE:0.99",
+      "matched_rule_id": null
+    }
+  ],
+  "scenario_3_llm_failure": [
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "alert",
+        "title": "Server Alert",
+        "message": "Server is down in zone A",
+        "source": "unknown",
+        "priority_hint": "urgent",
+        "timestamp": "2026-02-26T10:00:00+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": "srvdown-42",
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "FALLBACK",
+      "reason": "FALLBACK: LLM service simulated failure \u2192 NOW",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "alert",
+        "title": "Server Alert",
+        "message": "Server is down in zone A",
+        "source": "unknown",
+        "priority_hint": "urgent",
+        "timestamp": "2026-02-26T10:00:30+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": "srvdown-42",
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "FALLBACK",
+      "reason": "FALLBACK: LLM service simulated failure \u2192 NOW",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "reminder",
+        "title": "Timesheet",
+        "message": "Submit timesheet today",
+        "source": "unknown",
+        "priority_hint": "medium",
+        "timestamp": "2026-02-26T10:02:00+00:00",
+        "channel": "email",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "LATER",
+      "scheduled_time": "2026-02-27T09:00:00+00:00",
+      "explanation_code": "FALLBACK",
+      "reason": "FALLBACK: LLM service simulated failure \u2192 LATER",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "promotion",
+        "title": "Shoe Sale",
+        "message": "Flat 70% off on shoes",
+        "source": "unknown",
+        "priority_hint": "low",
+        "timestamp": "2026-02-26T10:03:00+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NEVER",
+      "scheduled_time": null,
+      "explanation_code": "RULE_OVERRIDE",
+      "reason": "Rule R01: Suppress promotions by default",
+      "matched_rule_id": "R01"
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "reminder",
+        "title": "Timesheet",
+        "message": "Submit timesheet today",
+        "source": "unknown",
+        "priority_hint": "medium",
+        "timestamp": "2026-02-26T10:04:00+00:00",
+        "channel": "email",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "LATER",
+      "scheduled_time": "2026-02-27T09:00:00+00:00",
+      "explanation_code": "FALLBACK",
+      "reason": "FALLBACK: LLM service simulated failure \u2192 LATER",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u2",
+        "event_type": "message",
+        "title": "Verification",
+        "message": "OTP: 445566",
+        "source": "unknown",
+        "priority_hint": "urgent",
+        "timestamp": "2026-02-26T10:05:00+00:00",
+        "channel": "sms",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "FALLBACK",
+      "reason": "FALLBACK: LLM service simulated failure \u2192 NOW",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "alert",
+        "title": "Disk Alert",
+        "message": "Disk usage 95% in zone A",
+        "source": "unknown",
+        "priority_hint": "high",
+        "timestamp": "2026-02-26T10:06:00+00:00",
+        "channel": "in_app",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NOW",
+      "scheduled_time": null,
+      "explanation_code": "FALLBACK",
+      "reason": "FALLBACK: LLM service simulated failure \u2192 NOW",
+      "matched_rule_id": null
+    },
+    {
+      "input_event": {
+        "user_id": "u1",
+        "event_type": "promotion",
+        "title": "Shoes on Sale",
+        "message": "Sale on shoes - 70%",
+        "source": "unknown",
+        "priority_hint": "low",
+        "timestamp": "2026-02-26T10:08:00+00:00",
+        "channel": "push",
+        "metadata": {},
+        "dedupe_key": null,
+        "expires_at": null
+      },
+      "decision": "NEVER",
+      "scheduled_time": null,
+      "explanation_code": "RULE_OVERRIDE",
+      "reason": "Rule R01: Suppress promotions by default",
+      "matched_rule_id": "R01"
+    }
+  ]
+}

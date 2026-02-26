@@ -1,0 +1,10 @@
+[
+  {
+    "time": "2026-02-26T12:33:36.913411+00:00",
+    "sender": "madhavmisale7@gmail.com",
+    "subject": "Meeting at 5 PM",
+    "classification": "VERY IMPORTANT",
+    "decision": "NOW",
+    "reason": "LABEL:NOW; SHORT_REASON:Urgent: urgency score=2; CONFIDENCE:0.99"
+  }
+]

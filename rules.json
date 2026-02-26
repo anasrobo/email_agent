@@ -1,0 +1,62 @@
+{
+  "rules": [
+    {
+      "action": {
+        "force_decision": "NEVER"
+      },
+      "description": "Suppress promotions by default",
+      "id": "R01",
+      "match": {
+        "event_type": [
+          "promotion"
+        ]
+      },
+      "priority": 100
+    },
+    {
+      "action": {
+        "force_decision": "NOW"
+      },
+      "description": "Always send urgent system alerts immediately",
+      "id": "R02",
+      "match": {
+        "event_type": [
+          "system"
+        ],
+        "priority_hint": [
+          "urgent"
+        ]
+      },
+      "priority": 200
+    },
+    {
+      "action": {
+        "downgrade": {
+          "NOW": "LATER"
+        }
+      },
+      "description": "Night quiet hours: downgrade NOW to LATER",
+      "id": "R03",
+      "match": {
+        "time_window": {
+          "end_hour": 6,
+          "start_hour": 22
+        }
+      },
+      "priority": 50
+    },
+    {
+      "action": {
+        "limit_per_day": 3
+      },
+      "description": "Max 3 reminders per user per day",
+      "id": "R04",
+      "match": {
+        "event_type": [
+          "reminder"
+        ]
+      },
+      "priority": 80
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+    "test_events": [
+        {
+            "user_id": "u1",
+            "event_type": "alert",
+            "title": "Server Alert",
+            "message": "Server is down in zone A",
+            "priority_hint": "urgent",
+            "timestamp": "2026-02-26T10:00:00Z",
+            "channel": "push",
+            "dedupe_key": "srvdown-42"
+        },
+        {
+            "user_id": "u1",
+            "event_type": "alert",
+            "title": "Server Alert",
+            "message": "Server is down in zone A",
+            "priority_hint": "urgent",
+            "timestamp": "2026-02-26T10:00:30Z",
+            "channel": "push",
+            "dedupe_key": "srvdown-42"
+        },
+        {
+            "user_id": "u1",
+            "event_type": "reminder",
+            "title": "Timesheet",
+            "message": "Submit timesheet today",
+            "priority_hint": "medium",
+            "timestamp": "2026-02-26T10:02:00Z",
+            "channel": "email"
+        },
+        {
+            "user_id": "u1",
+            "event_type": "promotion",
+            "title": "Shoe Sale",
+            "message": "Flat 70% off on shoes",
+            "priority_hint": "low",
+            "timestamp": "2026-02-26T10:03:00Z",
+            "channel": "push"
+        },
+        {
+            "user_id": "u1",
+            "event_type": "reminder",
+            "title": "Timesheet",
+            "message": "Submit timesheet today",
+            "priority_hint": "medium",
+            "timestamp": "2026-02-26T10:04:00Z",
+            "channel": "email"
+        },
+        {
+            "user_id": "u2",
+            "event_type": "message",
+            "title": "Verification",
+            "message": "OTP: 445566",
+            "priority_hint": "urgent",
+            "timestamp": "2026-02-26T10:05:00Z",
+            "channel": "sms"
+        },
+        {
+            "user_id": "u1",
+            "event_type": "alert",
+            "title": "Disk Alert",
+            "message": "Disk usage 95% in zone A",
+            "priority_hint": "high",
+            "timestamp": "2026-02-26T10:06:00Z",
+            "channel": "in_app"
+        },
+        {
+            "user_id": "u1",
+            "event_type": "promotion",
+            "title": "Shoes on Sale",
+            "message": "Sale on shoes - 70%",
+            "priority_hint": "low",
+            "timestamp": "2026-02-26T10:08:00Z",
+            "channel": "push"
+        }
+    ],
+    "stress_test_events": [
+        {
+            "user_id": "u3",
+            "event_type": "alert",
+            "title": "CPU Alert",
+            "message": "CPU usage high on server-1",
+            "priority_hint": "high",
+            "timestamp": "2026-02-26T10:00:00Z",
+            "channel": "push"
+        },
+        {
+            "user_id": "u3",
+            "event_type": "alert",
+            "title": "Memory Alert",
+            "message": "Memory usage high on server-1",
+            "priority_hint": "high",
+            "timestamp": "2026-02-26T10:01:00Z",
+            "channel": "push"
+        },
+        {
+            "user_id": "u3",
+            "event_type": "alert",
+            "title": "Disk Alert",
+            "message": "Disk IOPS high on server-1",
+            "priority_hint": "high",
+            "timestamp": "2026-02-26T10:02:00Z",
+            "channel": "push"
+        },
+        {
+            "user_id": "u3",
+            "event_type": "alert",
+            "title": "Network Alert",
+            "message": "Network latency high on server-1",
+            "priority_hint": "high",
+            "timestamp": "2026-02-26T10:03:00Z",
+            "channel": "push"
+        },
+        {
+            "user_id": "u3",
+            "event_type": "alert",
+            "title": "Load Alert",
+            "message": "Load average high on server-1",
+            "priority_hint": "high",
+            "timestamp": "2026-02-26T10:04:00Z",
+            "channel": "push"
+        },
+        {
+            "user_id": "u3",
+            "event_type": "alert",
+            "title": "Swap Alert",
+            "message": "Swap usage high on server-1",
+            "priority_hint": "high",
+            "timestamp": "2026-02-26T10:04:30Z",
+            "channel": "push"
+        }
+    ]
+}
