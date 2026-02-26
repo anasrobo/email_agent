@@ -130,6 +130,43 @@ class EmailListener:
 
         return emails
 
+    def fetch_recent_emails(self, hours: int = 24, limit: int = 50) -> list[dict]:
+        """
+        Fetch emails from the last N hours (regardless of read status).
+        Used on startup to build history of recent emails.
+        """
+        if not self._connection:
+            raise RuntimeError("Not connected — call connect() first")
+
+        self._connection.select("INBOX")
+
+        # Calculate date N hours ago in IMAP format (DD-Mon-YYYY)
+        from datetime import datetime, timedelta
+        since_date = (datetime.now() - timedelta(hours=hours)).strftime("%d-%b-%Y")
+
+        # Search for emails since that date
+        status, data = self._connection.search(None, f"(SINCE {since_date})")
+
+        if status != "OK" or not data[0]:
+            return []
+
+        message_ids = data[0].split()
+        # Get most recent ones first, limited to 'limit'
+        message_ids = message_ids[-limit:]
+
+        emails = []
+        for mid in message_ids:
+            status, msg_data = self._connection.fetch(mid, "(RFC822)")
+            if status != "OK":
+                continue
+
+            raw_bytes = msg_data[0][1]
+            parsed = self._parse_email(raw_bytes)
+            if parsed:
+                emails.append(parsed)
+
+        return emails
+
     @staticmethod
     def _decode_header(raw_header: str) -> str:
         """Decode a potentially encoded email header value."""

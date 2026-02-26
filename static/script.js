@@ -213,7 +213,7 @@ function renderCards(notifications) {
             <div class="empty-state">
                 <div class="empty-icon">📭</div>
                 <h3>${currentFilter === 'ALL' ? 'No emails processed yet' : 'No emails in this category'}</h3>
-                <p>Use the Simulate panel above, or configure Gmail credentials to see live emails.</p>
+                <p>Waiting for emails... The agent checks your Gmail inbox every 15 seconds.</p>
             </div>`;
         return;
     }
@@ -273,7 +273,7 @@ function simulateEmail() {
         alert('Request failed. See console for details.');
     })
     .finally(() => {
-        btn.textContent = '▶ Send';
+        btn.textContent = '▶ Send Test';
         btn.disabled = false;
     });
 }

@@ -143,6 +143,19 @@ def background_email_listener():
         
         try:
             listener.connect()
+            
+            # On first connect, fetch last 24 hours of emails to build history
+            print("[Background Thread] Fetching recent emails from last 24 hours...")
+            try:
+                recent_emails = listener.fetch_recent_emails(hours=24, limit=50)
+                print(f"[Background Thread] Found {len(recent_emails)} recent emails to process")
+                for eml in recent_emails:
+                    print(f"[IMAP] Processing recent email: {eml.get('subject')}")
+                    process_and_store_email(eml)
+            except Exception as e:
+                print(f"[Background Thread] Error fetching recent emails: {e}")
+            
+            # Now start polling for new unread emails
             while True:
                 # Reload config inside loop to catch interval changes
                 config = load_config()
