@@ -1,7 +1,7 @@
 # Notification Prioritization Engine
 
 > **Round 1 AI-Native Solution — Cyepro Solutions**  
-> Candidate: Madhav | Deadline: 27th Feb 2026, 6:00 PM
+> Candidate: Madhav 
 
 A production-grade Notification Prioritization Engine that decides — for every incoming notification — whether it should be delivered **Now**, deferred for **Later**, or suppressed (**Never**). Built with a multi-stage AI decision pipeline, configurable rule engine, alert-fatigue management, and a live interactive web dashboard.
 
